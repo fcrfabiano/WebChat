@@ -1,0 +1,125 @@
+.app {
+  display: grid;
+  grid-template-rows: max-content 1fr max-content;
+  padding: 2.4rem 3.2rem;
+  width: 100vw;
+  height: 100vh;
+}
+
+.user-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.user-status-wrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+.user-status img {
+  border-radius: 50%;
+  width: 4.8rem;
+  height: 4.8rem;
+}
+
+.user-status {
+  display: flex;
+  align-items: center;
+  gap: 1.6rem;
+}
+
+.user-status-wrapper strong {
+  font-size: 1.6rem;
+}
+
+.user-status-wrapper span {
+  font-size: 1.2rem;
+  color: #00B37E;
+  display: flex;
+  gap: 0.4rem;
+  align-items: baseline;
+}
+
+.user-status-wrapper span::before {
+  content: "";
+  width: 0.8rem;
+  height: 0.8rem;
+  background-color: #00B37E;
+  border-radius: 50%;
+}
+
+.user-last-seen {
+  margin-top: 2.6rem;
+  text-align: center;
+  font-size: 1.2rem;
+}
+
+.user-info svg {
+  cursor: pointer;
+}
+
+.footer {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1.4rem 2.4rem;
+  background-color: #282843;
+  border-radius: 999px;
+}
+
+.footer input {
+  flex: 1;
+  font-size: 1.2rem;
+  outline: none;
+  color: #E1E1E6;
+}
+
+.footer input::placeholder {
+  color: #E1E1E6;
+}
+
+.footer:focus-within {
+  outline: 1px #3980D4 solid;
+}
+
+.footer button, input {
+  background-color: transparent;
+  border: 0;
+}
+
+button {
+  cursor: pointer;
+}
+
+.main {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+  overflow: hidden;
+  padding-bottom: 1rem;
+  overflow-y: scroll;
+}
+
+.message-container {
+  font-size: 1.2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.message {
+  padding: 1.4rem;
+  max-width: 60vh;
+  background-color: #633BBC;
+  border-radius: 0 0.8rem 0.8rem 0.8rem;
+}
+
+.you .message {
+  background-color: #07847E;
+  border-radius: 0.8rem 0.8rem 0 0.8rem;
+}
+
+.you, .you span {
+  margin-left: auto;
+}
