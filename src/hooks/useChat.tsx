@@ -59,8 +59,8 @@ export function ChatProvider({ children }: ChatProviderProps) {
           {
             key: data.id,
             author: "ChatGPT",
-            time: data.created,
-            text: data.choices.map((choice) => choice.text).join(' '),
+            time: new Date(data.created).toLocaleTimeString('pt-BR', { hour: '2-digit', minute: '2-digit'}),
+            text: data.choices.map((choice) => choice.text).join(" "),
           },
         ]);
       }
