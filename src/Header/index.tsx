@@ -1,14 +1,14 @@
+import chatGPT from "../assets/openai-avatar.png";
+import { getTime } from "../utils/getTime";
+
 export function Header() {
   return (
     <div className="header">
       <div className="user-info">
         <div className="user-status">
-          <img
-            src="https://randomuser.me/api/portraits/men/9.jpg"
-            alt="Jessie Pinkman"
-          />
+          <img src={chatGPT} alt="Jessie Pinkman" />
           <div className="user-status-wrapper">
-            <strong>Jessie Pinkman</strong>
+            <strong>ChatGPT</strong>
             <span>Online</span>
           </div>
         </div>
@@ -67,7 +67,7 @@ export function Header() {
         </svg>
       </div>
       <div className="user-last-seen">
-        <span>Hoje 11:30</span>
+        <span>Hoje {getTime()}</span>
       </div>
     </div>
   );
