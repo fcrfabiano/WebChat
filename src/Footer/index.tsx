@@ -1,8 +1,16 @@
+import { useChat } from "../hooks/useChat";
+
 export function Footer() {
+  const {
+    onSubmit,
+    message,
+    setMessage,
+  } = useChat();
+
   return (
-    <form className="footer">
-      <input type="text" placeholder="Digite sua mensagem" />
-      <button>
+    <form className="footer" onSubmit={onSubmit}>
+      <input type="text" placeholder="Digite sua mensagem" value={message} onChange={({target}) => setMessage(target.value)} />
+      <button type="submit">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="24"

@@ -1,15 +1,15 @@
 interface MessageProps {
-  you?: boolean;
-  user: string;
-  message: string;
+  author: string;
+  text: string;
+  time: string | number;
 }
 
-export function Message({ you, user, message }: MessageProps) {
+export function Message({ author, text, time }: MessageProps) {
   return (
-    <div className={`message-container ${you ? "you" : ""}`}>
-      <span>{ user }</span>
+    <div className={`message-container ${author === "You" ? "you" : ""}`}>
+      <span>{ `${author} - ${time}` }</span>
       <div className="message">
-        <span>{ message }</span>
+        <span>{ text }</span>
       </div>
     </div>
   );
