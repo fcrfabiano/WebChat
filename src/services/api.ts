@@ -10,7 +10,8 @@ export const generate = async (completion: CreateCompletionRequest) =>
   openai
     .createCompletion(completion, {
       headers: {
-        "Authorization": `Bearer ${import.meta.env.VITE_OPENAI_API_KEY}`,
+        "Content-Type": "application/json",
+        Authorization: "Bearer " + String(import.meta.env.VITE_OPENAI_API_KEY),
       },
     })
     .then(({ data }) => data);
