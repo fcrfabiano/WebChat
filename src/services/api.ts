@@ -2,11 +2,8 @@ import { Configuration, OpenAIApi, CreateCompletionRequest } from "openai";
 
 const configuration = new Configuration({
   organization: "org-KcvBVdnR7VG4H1ALqYYuMEzJ",
-  apiKey: import.meta.env.VITE_OPENAI_API_KEY,
+  apiKey: `Bearer ${import.meta.env.VITE_OPENAI_API_KEY}`,
 });
-
-console.log(import.meta.env.VITE_OPENAI_API_KEY);
-
 
 const openai = new OpenAIApi(configuration);
 
