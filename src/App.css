@@ -6,6 +6,12 @@
   height: 100vh;
 }
 
+@media screen and (min-width: 500px) {
+  .app {
+    padding: 3.2rem 7.2rem;
+  }
+}
+
 .user-info {
   display: flex;
   justify-content: space-between;

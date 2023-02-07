@@ -29,41 +29,42 @@ export function ChatProvider({ children }: ChatProviderProps) {
   const onSubmit = async (event: FormEvent) => {
     event.preventDefault();
 
-     setMessages((prevState) => [
-          ...prevState,
-          {
-            key: new Date().toDateString(),
-            author: "You",
-            time: getTime(),
-            text: message,
-          }
-        ]
-      );
+    if (!message) return;
 
-      const completion = {
-        model: "text-davinci-003",
-        prompt: message,
-        max_tokens: 100,
-        temperature: 1,
-      };
+    setMessages((prevState) => [
+      ...prevState,
+      {
+        key: new Date().toDateString(),
+        author: "You",
+        time: getTime(),
+        text: message,
+      },
+    ]);
 
-      setMessage("");
+    const completion = {
+      prompt: message,
+      model: "text-davinci-003",
+      max_tokens: 100,
+      temperature: 1,
+    };
+
+    setMessage("");
 
     try {
-      if (message) {
-        const data = await generate(completion);
-        console.log(data);
-        
-        setMessages((prevState) => [
-          ...prevState,
-          {
-            key: data.id,
-            author: "ChatGPT",
-            time: new Date(data.created).toLocaleTimeString('pt-BR', { hour: '2-digit', minute: '2-digit'}),
-            text: data.choices.map((choice) => choice.text).join(" "),
-          },
-        ]);
-      }
+      const data = await generate(completion);
+
+      setMessages((prevState) => [
+        ...prevState,
+        {
+          key: data.id,
+          author: "ChatGPT",
+          time: new Date(data.created).toLocaleTimeString("pt-BR", {
+            hour: "2-digit",
+            minute: "2-digit",
+          }),
+          text: data.choices.map((choice) => choice.text).join(" "),
+        },
+      ]);
     } catch (error) {
       console.error(error);
     }
