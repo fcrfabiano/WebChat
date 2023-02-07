@@ -1,3 +1,4 @@
+import { randomUUID } from "crypto";
 import {
   useContext,
   createContext,
@@ -34,7 +35,7 @@ export function ChatProvider({ children }: ChatProviderProps) {
     setMessages((prevState) => [
       ...prevState,
       {
-        key: new Date().toDateString(),
+        key: crypto.randomUUID(),
         author: "You",
         time: getTime(),
         text: message,
